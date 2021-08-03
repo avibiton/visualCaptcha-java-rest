@@ -163,29 +163,7 @@
                 </configuration>
             </plugin>
             -->
-        </plugins>
-    </build>
-
-
-    <repositories>
-        <repository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </pluginRepository>
-    </pluginRepositories>
-         
-    <profiles>
-    <profile>
-           <id>sealights</id>
-           <build>
-               <plugins>
-                     <plugin>
+            <plugin>
                         <groupId>io.sealights.on-premise.agents.plugin</groupId>
                         <artifactId>sealights-maven-plugin</artifactId>
                         <version>3.1.825</version>
@@ -224,9 +202,21 @@
                             </execution>
                         </executions>
                     </plugin>
-               </plugins>
-           </build>
-    </profile>
-</profiles>
+        </plugins>
+    </build>
+
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
