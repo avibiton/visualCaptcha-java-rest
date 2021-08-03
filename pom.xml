@@ -94,7 +94,7 @@
                 </configuration>
             </plugin>
             <!-- Configure failsafe plugin for Integration  -->
-            <!-- SEE ALSO PROFILE SPECIFIC CONFIGURATION_ERROR FOR coverafe !!! -->
+            <!-- SEE ALSO SPECIFIC CONFIGURATION_ERROR FOR coverafe !!! -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -179,5 +179,54 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+         
+    <profiles>
+    <profile>
+           <id>sealights</id>
+           <build>
+               <plugins>
+                     <plugin>
+                        <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                        <artifactId>sealights-maven-plugin</artifactId>
+                        <version>3.1.825</version>
+                        <configuration>
+                            <!-- <token>${SL_TOKEN}</token> -->
+                            <tokenFile>/path/to/sltoken.txt</tokenFile>
+                            <!-- <buildSessionId>${SL_BUILD_SESSION_ID}</buildSessionId> -->
+                            <buildSessionIdFile>buildSessionId.txt</buildSessionIdFile>
+                            <createBuildSessionId>false</createBuildSessionId>
+                            <testStage>Unit Tests</testStage>
+                            <filesincluded>*.class</filesincluded>
+                            <filesStorage>/tmp</filesStorage>
+                            <filesexcluded>*test-classes*</filesexcluded>
+                            <logEnabled>false</logEnabled>
+                            <logLevel>WARN</logLevel>
+                            <sealightsJvmParams></sealightsJvmParams>
+                            <includeResources>true</includeResources>
+                            <metadata>
+                                <jobName>${JOB_NAME}</jobName>
+                                <logsUrl>${BUILD_URL}/console</logsUrl>
+                            </metadata>
+                            <!-- <proxy>http://your.proxy:1234/proxy> -->
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>a1</id>
+                                <goals>
+                                    <goal>build-scanner</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>a2</id>
+                                <goals>
+                                    <goal>test-listener</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+               </plugins>
+           </build>
+    </profile>
+</profiles>
 
 </project>
