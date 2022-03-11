@@ -3,4 +3,5 @@ FROM java:7
 VOLUME /tmp
 ADD target/visualCaptcha-java-rest-0.1.jar app.jar
 RUN bash -c 'touch /app.jar'
+RUN bash sleep 5
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
