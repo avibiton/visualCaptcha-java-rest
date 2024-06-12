@@ -3,8 +3,10 @@ package com.kuhniverse.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaptchaFrontEndData
-{
+/**
+ * Based on the work of https://github.com/bdotzour/visualCaptcha-java
+ */
+public class CaptchaFrontEndData {
     private String imageName;
     private String imageFieldName;
     private List<String> values;

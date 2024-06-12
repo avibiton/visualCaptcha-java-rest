@@ -5,15 +5,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class CaptchaSessionInfo implements Serializable
-{
+/**
+ * Based on the work of https://github.com/bdotzour/visualCaptcha-java
+ */
+public class CaptchaSessionInfo implements Serializable {
     private List<CaptchaAnswer> choices;
     private String validChoice;
     private String fieldName;
     private String audioFieldName;
     private CaptchaAnswer audioAnswer;
 
-    public CaptchaSessionInfo(String fieldName, String validChoice, String audioFieldName, CaptchaAnswer audioAnswer, List<CaptchaAnswer> choices){
+    public CaptchaSessionInfo(String fieldName, String validChoice, String audioFieldName, CaptchaAnswer audioAnswer, List<CaptchaAnswer> choices) {
         this.fieldName = fieldName;
         this.validChoice = validChoice;
         this.audioFieldName = audioFieldName;
@@ -21,7 +23,7 @@ class CaptchaSessionInfo implements Serializable
         this.choices = new ArrayList<>(choices);
     }
 
-    public CaptchaSessionInfo(String fieldName, String validChoice, String audioFieldName, CaptchaAnswer audioAnswer, CaptchaAnswer... choices){
+    public CaptchaSessionInfo(String fieldName, String validChoice, String audioFieldName, CaptchaAnswer audioAnswer, CaptchaAnswer... choices) {
         this.fieldName = fieldName;
         this.validChoice = validChoice;
         this.audioFieldName = audioFieldName;
